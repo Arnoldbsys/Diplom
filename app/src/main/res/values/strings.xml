@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Shop</string>
+    <string name="menu_home_title_text">Товары</string>
+    <string name="menu_favorits_title_text">Избранное</string>
+    <string name="menu_shopping_cart__title_text">Корзина</string>
+    <string name="menu_filter_title_text">Фильтр</string>
+    <string name="menu_settings_title_text">Настройки</string>
+</resources>
