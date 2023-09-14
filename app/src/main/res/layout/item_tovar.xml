@@ -6,7 +6,7 @@
     <data>
         <variable
             name="film"
-            type="ru.dombuketa.db_module.dto.Film" />
+            type="String" />
     </data>
 
     <FrameLayout
@@ -45,7 +45,7 @@
                     app:layout_constraintLeft_toRightOf="@id/poster"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:text="@{film.title}"></TextView>
+                    android:text="@{film}"></TextView>
 
                 <TextView
                     android:id="@+id/description"
@@ -56,7 +56,7 @@
                     app:layout_constraintLeft_toRightOf="@id/poster"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/title"
-                    android:text="@{film.description}"
+                    android:text="@{film}"
                     tools:text="@tools:sample/lorem/random"></TextView>
 
 

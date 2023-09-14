@@ -5,16 +5,15 @@
     android:id="@+id/favorite_fragment_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:visibility="invisible"
-    android:background="@drawable/background_favorites"
+    android:visibility="visible"
+    android:background="@drawable/background_shopping_cart"
     tools:visibility="visible"
-    tools:context=".view.fragments.FavoritesFragment">
+    tools:context=".views.fragments.ShoppingCartFragment">
 
 <androidx.recyclerview.widget.RecyclerView
     android:id="@+id/favorites_recycler"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:listitem="@layout/film_item"
     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
 </androidx.recyclerview.widget.RecyclerView>
 
