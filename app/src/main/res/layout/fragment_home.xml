@@ -11,12 +11,24 @@
 
     <androidx.appcompat.widget.SearchView
         android:id="@+id/search_view"
-        android:layout_width="match_parent"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
+        app:layout_constraintStart_toStartOf="parent"
         android:background="@drawable/shape_roundcorner"
         app:layout_constraintTop_toTopOf="parent">
     </androidx.appcompat.widget.SearchView>
+    <ImageButton
+        android:id="@+id/button_filter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:src="@drawable/ic_outline_filter_24"
+        app:layout_constraintStart_toEndOf="@id/search_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </ImageButton>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
