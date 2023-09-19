@@ -2,10 +2,14 @@ package ru.dombuketa.shop.views
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
+import ru.dombuketa.shop.API
+import ru.dombuketa.shop.App
 import ru.dombuketa.shop.R
 import ru.dombuketa.shop.databinding.ActivityMainBinding
 import ru.dombuketa.shop.views.fragments.*
+import java.util.concurrent.Flow.Subscription
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -18,6 +22,7 @@ class MainActivity : AppCompatActivity() {
         val fragmentHome = checkFragExist("home")
         changeFrag(fragmentHome ?: HomeFragment(), "home")
 
+        //list.subscribe(System.out::println)
     }
 
 
