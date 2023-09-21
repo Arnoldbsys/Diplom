@@ -29,7 +29,8 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val thread = Thread {
-            val list = App.instance.netapi.dombuketa2Api.getProduct(350, API.KEY)
+            //val list = App.instance.netapi.dombuketa2Api.getProduct(350, API.KEY)
+            val list = viewModel.getProductModel(350)
             println("fafa")
             list.subscribe(
                 {
