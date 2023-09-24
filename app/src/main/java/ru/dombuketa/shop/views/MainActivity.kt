@@ -19,10 +19,9 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initNavMenu()
-        val fragmentHome = checkFragExist("home")
-        changeFrag(fragmentHome ?: HomeFragment(), "home")
+        val fragmentDetailsTovar = checkFragExist("details_tovar")
+        changeFrag(fragmentDetailsTovar ?: DetailsTovarFragment(), "details_tovar")
 
-        //list.subscribe(System.out::println)
     }
 
 

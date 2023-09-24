@@ -18,7 +18,7 @@ class Interactor(private val retrofitService: IDomBuketa2Api) {
             .subscribeOn(Schedulers.io())
             .map {
                 progressBarStateRx.onNext(false)
-                ConverterProduct.convertApiProductToDTOProduct(it)
+                ConverterProduct.apiToDTO(it)
             }
             .doOnError { progressBarStateRx.onNext(false) }
     }

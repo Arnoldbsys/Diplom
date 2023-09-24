@@ -5,22 +5,22 @@ import ru.dombuketa.shop.models.Product
 
 object ConverterProduct {
 
-    fun convertApiListToDTOList(list: List<ApiModelProduct>?): List<Product>{
+    fun apiListToDTOList(list: List<ApiModelProduct>?): List<Product>{
         val result = mutableListOf<Product>()
         list?.forEach {
-            result.add(convertApiProductToDTOProduct(it))
+            result.add(apiToDTO(it))
         }
         return  result
     }
 
-    fun convertApiProductToDTOProduct(product: ApiModelProduct): Product {
+    fun apiToDTO(product: ApiModelProduct): Product {
         return Product(
             id = product.id,
             name =  product.name,
-            imageCart = product.imageCart.fileName,
-            imageGalary = product.imageGalary[0].fileName,
+            imageCart = ConverterImage.apiToDTO(product.imageCart),
+            imageGalary = ConverterImage.apiListToDTOList(product.imageGalary),
             description = product.description,
-            price = product.price.summaFinal,
+            price = ConverterPrice.apiToDTO(product.price),
             rating = 0.0,
             isInFavorites = false
         )
