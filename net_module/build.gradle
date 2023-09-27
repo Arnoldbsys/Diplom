@@ -1,11 +1,14 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
 }
 
 android {
     namespace 'ru.dombuketa.net_module'
     compileSdk 32
+
+    apply from: "$project.rootDir/versions.gradle"
 
     defaultConfig {
         minSdk 29
@@ -49,4 +52,9 @@ dependencies {
 //    implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
     implementation 'io.reactivex.rxjava3:rxjava:3.0.0'
 //    implementation 'io.reactivex.rxjava3:rxkotlin:3.0.1'
+
+    //dagger
+    implementation dagger
+    kapt daggerCompiler
+
 }
