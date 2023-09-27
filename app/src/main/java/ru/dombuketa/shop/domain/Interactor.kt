@@ -19,10 +19,30 @@ class Interactor(private val retrofitService: IDomBuketa2Api) {
             .map {
                 progressBarStateRx.onNext(false)
                 ConverterProduct.apiToDTO(it)
+                //progressBarStateRx.onNext(true)
             }
             .doOnError { progressBarStateRx.onNext(false) }
     }
 
+    fun getProductListFromAPIRx(page: Int) : Observable<List<Product>>{
+        progressBarStateRx.onNext(true)
+        return retrofitService.getProductList("",  API.KEY,  page)
+            .subscribeOn(Schedulers.io())
+            .map {
+                progressBarStateRx.onNext(false)
+                ConverterProduct.apiListToDTOList(it.productList)
+            }
+            .doOnError {  progressBarStateRx.onNext(false)  }
+//            .subscribeBy(
+//                onError = {
+//                    progressBarStateRx.onNext(false)
+//                          },
+//                onNext = {
+//                progressBarStateRx.onNext(false)
+//                //repo.putToDB(it)
+//            }
+//            )
+    }
     companion object{
         //40*
         private const val TIMEDEVIDER = 60000

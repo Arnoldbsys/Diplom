@@ -4,6 +4,7 @@ import io.reactivex.rxjava3.core.Observable
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
+import ru.dombuketa.net_module.entity.ApiConstants
 import ru.dombuketa.net_module.entity.ApiModelProduct
 import ru.dombuketa.net_module.entity.ApiProduct_ResultsDTO
 
@@ -13,11 +14,13 @@ interface IDomBuketa2Api {
         @Path("id") category: Int,
         @Query("key") apiKey: String,
     ): Observable<ApiModelProduct>
+
     @GET("2/product/category/{category}")
     fun getProductList(
         @Path("category") category: String,
         @Query("key") apiKey: String,
-        @Query("page") page: Int,
+        @Query("pageIndex") page: Int,
+        @Query("pageSize") pageSize: Int = ApiConstants.PAGE_SIZE,
     ): Observable<ApiProduct_ResultsDTO>
     // Поиск
     @GET("2/product/searchbyname/{query}")

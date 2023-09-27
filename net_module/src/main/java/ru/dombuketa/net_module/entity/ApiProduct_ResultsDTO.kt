@@ -5,8 +5,8 @@ import com.google.gson.annotations.SerializedName
 data class ApiProduct_ResultsDTO (
     @SerializedName("page")
     val page: Int,
-    @SerializedName("results")
-    val tmdbFilms: List<ApiModelProduct>,
+    @SerializedName("result")
+    val productList: List<ApiModelProduct>,
     @SerializedName("total_pages")
     val totalPages: Int,
     @SerializedName("total_results")

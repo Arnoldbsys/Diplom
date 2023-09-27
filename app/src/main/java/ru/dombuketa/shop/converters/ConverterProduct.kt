@@ -17,10 +17,10 @@ object ConverterProduct {
         return Product(
             id = product.id,
             name =  product.name,
-            imageCart = ConverterImage.apiToDTO(product.imageCart),
+            imageCart = if (product.imageCart == null) null else ConverterImage.apiToDTO(product.imageCart),
             imageGalary = ConverterImage.apiListToDTOList(product.imageGalary),
             description = product.description,
-            price = ConverterPrice.apiToDTO(product.price),
+            price = if (product.price == null) null else ConverterPrice.apiToDTO(product.price),
             rating = 0.0,
             isInFavorites = false
         )

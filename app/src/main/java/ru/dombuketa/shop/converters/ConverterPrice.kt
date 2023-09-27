@@ -9,23 +9,25 @@ import ru.dombuketa.shop.models.Product
 
 object ConverterPrice {
 
-    fun apiListToDTOList(list: List<ApiModelPrice>?): List<Price>{
-        val result = mutableListOf<Price>()
+    fun apiListToDTOList(list: List<ApiModelPrice>?): List<Price?>{
+        val result = mutableListOf<Price?>()
         list?.forEach {
             result.add(apiToDTO(it))
         }
         return  result
     }
 
-    fun apiToDTO(price: ApiModelPrice): Price {
-        return Price(
-            id = price.id,
-            summa =  price.summa,
-            summaFinal = price.summaFinal,
-            discountSumma = price.discountSumma,
-            discountPercent = price.discountPercent,
-            discountType = price.discountType
-        )
+    fun apiToDTO(price: ApiModelPrice): Price? {
+        if (price != null) {
+            return Price(
+                id = price.id,
+                summa = price.summa,
+                summaFinal = price.summaFinal,
+                discountSumma = price.discountSumma,
+                discountPercent = price.discountPercent,
+                discountType = price.discountType
+            )}
+        else return null
     }
 
 }

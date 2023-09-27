@@ -25,12 +25,21 @@ class DetailsTovarFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.getProductModel(350).subscribe(
+//        viewModel.getProductModel(350).subscribe(
+//            {
+//                Log.i("FAFA", it.toString())
+//                binding.detailsDescription.text = it.toString()
+//            }, Throwable::printStackTrace
+//        )
+
+        viewModel.productDetails.subscribe(
             {
                 Log.i("FAFA", it.toString())
                 binding.detailsDescription.text = it.toString()
             }, Throwable::printStackTrace
         )
+
+
     }
 
 }

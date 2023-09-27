@@ -5,8 +5,8 @@
 
     <data>
         <variable
-            name="film"
-            type="String" />
+            name="tovar"
+            type="ru.dombuketa.shop.models.Product" />
     </data>
 
     <FrameLayout
@@ -28,12 +28,12 @@
 
                 <ImageView
                     android:id="@+id/poster"
-                    android:layout_width="@dimen/item_tovar_img_width"
+                    android:layout_width="@dimen/item_tovar_img_width_v"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:src="@tools:sample/avatars"></ImageView>
+                    android:src="@drawable/no_foto_product"></ImageView>
 
                 <TextView
                     android:id="@+id/title"
@@ -45,7 +45,7 @@
                     app:layout_constraintLeft_toRightOf="@id/poster"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:text="@{film}"></TextView>
+                    android:text="@{tovar.name}"></TextView>
 
                 <TextView
                     android:id="@+id/description"
@@ -56,7 +56,7 @@
                     app:layout_constraintLeft_toRightOf="@id/poster"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/title"
-                    android:text="@{film}"
+                    android:text="@{tovar.description}"
                     tools:text="@tools:sample/lorem/random"></TextView>
 
 

@@ -10,7 +10,7 @@ import ru.dombuketa.shop.utils.SingleLiveEvent
 import javax.inject.Inject
 
 class HomeFragmentViewModel : ViewModel() {
-    lateinit var productDetails: Observable<Product>
+    lateinit var productsListRxJavaData : Observable<List<Product>>
     @Inject
     lateinit var interactor: Interactor
     val showProgressBar: BehaviorSubject<Boolean>
@@ -19,13 +19,13 @@ class HomeFragmentViewModel : ViewModel() {
     init {
         App.instance.dagger.inject(this)
         showProgressBar = interactor.progressBarStateRx
+        productsListRxJavaData = interactor.getProductListFromAPIRx(1)
         errorNetworkConnection.postValue("")
     }
 
-    fun getProductModel(id: Int) : Observable<Product>{
-        return interactor.getProductFromAPI(id)
+    fun getProductList(page: Int) : Observable<List<Product>>{
+        return interactor.getProductListFromAPIRx(page)
     }
-
     companion object{
         const val ERROR_CONNECTION_MSG = "Ошибка соединения." //41*
     }

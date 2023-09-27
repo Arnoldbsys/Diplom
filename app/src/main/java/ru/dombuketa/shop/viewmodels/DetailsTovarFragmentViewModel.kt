@@ -19,6 +19,7 @@ class DetailsTovarFragmentViewModel : ViewModel() {
     init {
         App.instance.dagger.inject(this)
         showProgressBar = interactor.progressBarStateRx
+        productDetails = interactor.getProductFromAPI(269)
         errorNetworkConnection.postValue("")
     }
 

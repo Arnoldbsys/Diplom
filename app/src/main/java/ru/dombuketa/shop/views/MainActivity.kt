@@ -2,14 +2,11 @@ package ru.dombuketa.shop.views
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
-import ru.dombuketa.shop.API
-import ru.dombuketa.shop.App
 import ru.dombuketa.shop.R
 import ru.dombuketa.shop.databinding.ActivityMainBinding
+import ru.dombuketa.shop.models.Product
 import ru.dombuketa.shop.views.fragments.*
-import java.util.concurrent.Flow.Subscription
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -19,8 +16,14 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initNavMenu()
-        val fragmentDetailsTovar = checkFragExist("details_tovar")
-        changeFrag(fragmentDetailsTovar ?: DetailsTovarFragment(), "details_tovar")
+//        val fragmentDetailsTovar = checkFragExist("details_tovar")
+//        changeFrag(fragmentDetailsTovar ?: DetailsTovarFragment(), "details_tovar")
+
+//        val fragmentHome = checkFragExist("home")
+//        changeFrag(fragmentHome ?: HomeFragment(), "home")
+
+        val fragmentFavorites = checkFragExist("fav")
+        changeFrag(fragmentFavorites ?: FavoritesFragment(), "fav")
 
     }
 
@@ -73,5 +76,18 @@ class MainActivity : AppCompatActivity() {
             .addToBackStack(null).commit()
     }
 
-
+    fun lanunchDetailsFragment(product: Product){
+        //Создаем "посылку"
+        val bundle = Bundle()
+        //Кладем наш фильм в "посылку"
+        bundle.putParcelable("film",product)
+        //Кладем фрагмент с деталями в перменную
+        val fragment = DetailsTovarFragment()
+        //Прикрепляем нашу "посылку" к фрагменту
+        fragment.arguments = bundle
+        //Запускаем фрагмент
+        supportFragmentManager
+            .beginTransaction().replace(R.id.fragment_placeholder, fragment)
+            .addToBackStack(null).commit()
+    }
 }
