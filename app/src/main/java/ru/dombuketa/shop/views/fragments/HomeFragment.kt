@@ -74,7 +74,8 @@ class HomeFragment : Fragment() {
             //Присваиваем адаптер
             adapter = productAdapter
             //Присвои layoutmanager
-            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+            //layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+            layoutManager = LinearLayoutManager(requireContext())
 
             //layoutManagerRV = layoutManager as LinearLayoutManager
             //Применяем декоратор для отступов
